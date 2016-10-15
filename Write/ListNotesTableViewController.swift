@@ -9,6 +9,12 @@
 import UIKit
 
 class ListNotesTableViewController: UITableViewController {
+    
+    var notes = [Note]() {
+        didSet {
+            tableView.reloadData()
+        }
+    }
 
     @IBAction func unwindToListNotesViewController(segue: UIStoryboardSegue) {
         
@@ -40,16 +46,22 @@ class ListNotesTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 15
+        return notes.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
+        let row = indexPath.row
+        
+        let note = notes[row]
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "listNotesTableViewCell", for: indexPath) as! ListNotesTableViewCell
         
-        cell.title.text = "note's title"
-        cell.preview.text = "preview of the note"
-        cell.modificationTime.text = "note's modification time"
+        cell.noteTitleLabel.text = note.title
+        
+        cell.notePreviewLabel.text = note.content
+
+        cell.noteModificationTimeLabel.text = note.modificationTime.convertToString()
         
         return cell
     }

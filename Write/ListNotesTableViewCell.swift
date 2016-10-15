@@ -10,9 +10,11 @@ import UIKit
 
 class ListNotesTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var title: UILabel!
-    @IBOutlet weak var preview: UILabel!
-    @IBOutlet weak var modificationTime: UILabel!
+    @IBOutlet weak var noteTitleLabel: UILabel!
+
+    @IBOutlet weak var notePreviewLabel: UILabel!
+    
+    @IBOutlet weak var noteModificationTimeLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

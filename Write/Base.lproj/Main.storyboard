@@ -46,11 +46,17 @@
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="CUM-41-pCg">
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Frg-Ua-h5Y" userLabel="Title">
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="200" id="Ndn-Dy-b6X"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dwI-YW-iSV">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dwI-YW-iSV" userLabel="Preview">
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="200" id="5Ru-ME-CkE"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -71,9 +77,9 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="modificationTime" destination="oGr-Q5-vki" id="5ya-Ju-PvK"/>
-                                    <outlet property="preview" destination="dwI-YW-iSV" id="Egv-FP-tS0"/>
-                                    <outlet property="title" destination="Frg-Ua-h5Y" id="BKj-81-i4J"/>
+                                    <outlet property="noteModificationTimeLabel" destination="oGr-Q5-vki" id="fGh-2w-ufv"/>
+                                    <outlet property="notePreviewLabel" destination="dwI-YW-iSV" id="U4T-BG-NaG"/>
+                                    <outlet property="noteTitleLabel" destination="Frg-Ua-h5Y" id="Se4-2c-VuZ"/>
                                     <segue destination="BYZ-38-t0r" kind="show" identifier="displayNote" id="dxn-af-uvb"/>
                                 </connections>
                             </tableViewCell>
@@ -109,15 +115,7 @@
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ySq-5n-88f">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <attributedString key="attributedText">
-                                    <fragment>
-                                        <string key="content">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                        <attributes>
-                                            <font key="NSFont" size="14" name=".AppleSystemUIFont"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
+                                <attributedString key="attributedText"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Write Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yao-5R-Mdb">
@@ -150,6 +148,10 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="noteContentTextView" destination="ySq-5n-88f" id="EjY-T4-jjX"/>
+                        <outlet property="noteTitleTextField" destination="yao-5R-Mdb" id="eXR-XJ-2BI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BJ5-DN-sDl" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="OlU-QR-Uaj" userLabel="Exit" sceneMemberID="exit"/>
