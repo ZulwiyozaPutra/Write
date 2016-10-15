@@ -1,5 +1,5 @@
 //
-//  Note.swift
+//  RealmHelper.swift
 //  Write
 //
 //  Created by Zulwiyoza Putra on 10/15/16.
@@ -7,10 +7,3 @@
 //
 
 import Foundation
-import RealmSwift
-
-class Note: Object {
-    var title = ""
-    var content = ""
-    var modificationTime = NSDate()
-}

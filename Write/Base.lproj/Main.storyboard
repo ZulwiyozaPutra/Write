@@ -59,6 +59,7 @@
                                     <outlet property="noteModificationTimeLabel" destination="oGr-Q5-vki" id="fGh-2w-ufv"/>
                                     <outlet property="notePreviewLabel" destination="dwI-YW-iSV" id="U4T-BG-NaG"/>
                                     <outlet property="noteTitleLabel" destination="Frg-Ua-h5Y" id="Se4-2c-VuZ"/>
+                                    <segue destination="RHV-qs-ojL" kind="show" identifier="displayNote" id="Sdp-GM-Suv"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -156,4 +157,7 @@
             <point key="canvasLocation" x="136.80000000000001" y="792.95352323838085"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="WEZ-nn-fZg"/>
+    </inferredMetricsTieBreakers>
 </document>
