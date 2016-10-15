@@ -74,17 +74,15 @@ class ListNotesTableViewController: UITableViewController {
     }
     */
 
-    /*
-    // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            // Delete the row from the data source
+            notes.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
+//            tableView.reloadData()
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
-    */
 
     /*
     // Override to support rearranging the table view.
@@ -102,11 +100,22 @@ class ListNotesTableViewController: UITableViewController {
     */
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
         if let identifier = segue.identifier {
+            
             if identifier == "displayNote" {
-                print("transitioning to the display note controller")
+                
+                print("Table view cell tapped")
+                
+                let indexPath = tableView.indexPathForSelectedRow!
+                let note = notes[indexPath.row]
+                let displayNoteViewController = segue.destination as! DisplayNoteViewController
+                displayNoteViewController.note = note
+                
             } else if identifier == "addNote" {
+                
                 print("+ button tapped")
+                
             }
         }
     }

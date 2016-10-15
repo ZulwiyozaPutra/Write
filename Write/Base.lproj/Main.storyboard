@@ -6,27 +6,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Title-->
-        <scene sceneID="tne-QT-ifu">
-            <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Write" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Title" id="uPO-ix-fTY">
-                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="wdb-Ek-W93"/>
-                    </navigationItem>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2090" y="1217"/>
-        </scene>
         <!--Write-->
         <scene sceneID="j59-fC-hRP">
             <objects>
@@ -80,7 +59,6 @@
                                     <outlet property="noteModificationTimeLabel" destination="oGr-Q5-vki" id="fGh-2w-ufv"/>
                                     <outlet property="notePreviewLabel" destination="dwI-YW-iSV" id="U4T-BG-NaG"/>
                                     <outlet property="noteTitleLabel" destination="Frg-Ua-h5Y" id="Se4-2c-VuZ"/>
-                                    <segue destination="BYZ-38-t0r" kind="show" identifier="displayNote" id="dxn-af-uvb"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -90,6 +68,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Write" id="lma-c0-6Mi">
+                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="txV-DQ-Nzt"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="3uR-Px-g6d">
                             <connections>
                                 <segue destination="RHV-qs-ojL" kind="show" identifier="addNote" id="WEZ-nn-fZg"/>
@@ -104,7 +83,7 @@
         <!--New Write-->
         <scene sceneID="cfy-nu-jKa">
             <objects>
-                <viewController id="RHV-qs-ojL" customClass="ViewController" customModule="Write" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="RHV-qs-ojL" customClass="DisplayNoteViewController" customModule="Write" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="hBi-eE-Mto"/>
                         <viewControllerLayoutGuide type="bottom" id="6qi-Xx-n3C"/>
@@ -113,12 +92,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ySq-5n-88f">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ySq-5n-88f" userLabel="Note Content">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <attributedString key="attributedText"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Write Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yao-5R-Mdb">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Write Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yao-5R-Mdb" userLabel="Note Title">
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -149,14 +128,14 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="noteContentTextView" destination="ySq-5n-88f" id="EjY-T4-jjX"/>
-                        <outlet property="noteTitleTextField" destination="yao-5R-Mdb" id="eXR-XJ-2BI"/>
+                        <outlet property="noteContentTextView" destination="ySq-5n-88f" id="Gm9-lr-ipJ"/>
+                        <outlet property="noteTitleTextField" destination="yao-5R-Mdb" id="kmj-HF-0KM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BJ5-DN-sDl" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="OlU-QR-Uaj" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2087.1999999999998" y="504.19790104947532"/>
+            <point key="canvasLocation" x="1970" y="793"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="QoR-LJ-1OV">
