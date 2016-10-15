@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import RealmSwift
+import Realm
 
 class ListNotesTableViewCell: UITableViewCell {
     
