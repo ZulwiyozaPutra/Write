@@ -28,6 +28,8 @@ class ListNotesTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         notes = RealmHelper.retrieveNotes()
+        
+        // Get all the notes.
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -79,12 +81,13 @@ class ListNotesTableViewController: UITableViewController {
     
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        
         if editingStyle == .delete {
             tableView.beginUpdates()
-            print("note '\(notes[indexPath.row].title)' deleted")
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+            print("note with '\(notes[indexPath.row].title)' title deleted")
             RealmHelper.deleteNote(note: notes[indexPath.row])
             notes = RealmHelper.retrieveNotes()
-            tableView.deleteRows(at: [indexPath], with: .automatic)
             tableView.endUpdates()
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view

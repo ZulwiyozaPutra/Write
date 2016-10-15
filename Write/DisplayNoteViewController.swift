@@ -43,29 +43,24 @@ class DisplayNoteViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let listNotesTableViewController = segue.destination as! ListNotesTableViewController
         if segue.identifier == "Save" {
-            // if note exists, update title and content
+
             if let note = note {
-                // 1
                 let newNote = Note()
                 newNote.title = noteTitleTextField.text ?? ""
-                print("'\(newNote.title)' saved")
                 newNote.content = noteContentTextView.text ?? ""
-                print("'\(newNote.content)' saved")
-                newNote.modificationTime = NSDate()
-                print("'\(newNote.title)' saved")
+                print("an updated note '\(newNote.title)' with content: '\(newNote.content)' saved at \(newNote.modificationTime)")
                 RealmHelper.updateNote(noteToBeUpdated: note, newNote: newNote)
             } else {
-                // if note does not exist, create new note
                 let note = Note()
                 note.title = noteTitleTextField.text ?? ""
-                print("'\(note.title)' saved")
                 note.content = noteContentTextView.text ?? ""
-                print("'\(note.content)' saved")
                 note.modificationTime = NSDate()
-                // 2
+                print("a new note '\(note.title)' with content: '\(note.content)' saved at \(note.modificationTime)")
                 RealmHelper.addNote(note: note)
             }
+            
             listNotesTableViewController.notes = RealmHelper.retrieveNotes()
+
         } else if segue.identifier == "Cancel" {
             print("Cancel button tapped")
         }
